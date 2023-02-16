@@ -6,12 +6,27 @@ import {
   createUserDocumentFromAuth,
   signInWithGoogleRedirect,
 } from "../utils/firebase";
+import SignUpForm from "./SignUpForm";
+import "../styles/096 form-input.styles.scss";
+import "../styles/097 button.styles.scss";
 
 const SignIn = () => {
-  useEffect(async () => {
-    const response = await getRedirectResult(auth);
-    console.log({ response });
-  }, []);
+  //this code is useful for another signIn method.
+  // useEffect(() => {
+  //   try {
+  //     const getResponse = async () => {
+  //       const response = await getRedirectResult(auth);
+  //       // console.log({ response });
+
+  //       if (response) {
+  //         const userDocRef = await createUserDocumentFromAuth(response.user);
+  //       }
+  //     };
+  //     getResponse();
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // }, []);
 
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
@@ -20,11 +35,12 @@ const SignIn = () => {
 
   return (
     <>
-      <div>Sign In</div>;
+      <div>Sign In</div>
       <button onClick={logGoogleUser}>Sign In WIth Google</button>
-      <button onClick={signInWithGoogleRedirect}>
+      <SignUpForm />
+      {/* <button onClick={signInWithGoogleRedirect}>
         Sign In WIth Google Redirect
-      </button>
+      </button> */}
     </>
   );
 };
