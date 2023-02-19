@@ -7,8 +7,6 @@ import {
   signInWithGoogleRedirect,
 } from "../utils/firebase";
 import SignUpForm from "./SignUpForm";
-import "../styles/096 form-input.styles.scss";
-import "../styles/097 button.styles.scss";
 
 const SignIn = () => {
   //this code is useful for another signIn method.
