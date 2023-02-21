@@ -1,12 +1,12 @@
-import { useEffect } from "react";
-import { getRedirectResult } from "firebase/auth";
-import {
-  auth,
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-  signInWithGoogleRedirect,
-} from "../utils/firebase";
+import "../styles/signIn.styles.scss";
+// import {
+//   auth,
+//   signInWithGooglePopup,
+//   createUserDocumentFromAuth,
+//   signInWithGoogleRedirect,
+// } from "../utils/firebase";
 import SignUpForm from "./SignUpForm";
+import SignInForm from "./SignInForm";
 
 const SignIn = () => {
   //this code is useful for another signIn method.
@@ -26,20 +26,14 @@ const SignIn = () => {
   //   }
   // }, []);
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
-
   return (
-    <>
-      <div>Sign In</div>
-      <button onClick={logGoogleUser}>Sign In WIth Google</button>
+    <div className="authentication-container">
+      <SignInForm />
       <SignUpForm />
       {/* <button onClick={signInWithGoogleRedirect}>
         Sign In WIth Google Redirect
       </button> */}
-    </>
+    </div>
   );
 };
 
